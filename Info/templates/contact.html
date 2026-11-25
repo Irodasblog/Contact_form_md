@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ContactHub</title>
+
+    <link rel="stylesheet"
+          href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <strong>ContactHub</strong>
+
+        <a href="{% url 'xabarlar' %}">
+            Xabarlar
+        </a>
+    </nav>
+
+    <main class="container">
+
+        <div class="contact-card">
+
+            <h1>Biz bilan bog'laning</h1>
+
+            <p class="subtitle">
+                Savollaringiz bormi?
+                Bizga xabar yuboring.
+            </p>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button type="submit">
+                    Xabarni jo'natish
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
